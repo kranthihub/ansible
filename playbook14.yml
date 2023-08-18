@@ -1,0 +1,16 @@
+---
+- name: check for file f1
+  hosts: all
+  tasks: 
+     - name: check for f1 file 
+       stat: 
+          path: /home/ubuntu/f1
+       register: a
+     - name: display output of above module
+       debug:
+        var: a    
+     - name: creatong f1 if it is not present in servers
+       file:
+          name: /home/ubuntu/f1
+          state: touch
+       when: a.stat.exists == false     

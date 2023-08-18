@@ -1,0 +1,31 @@
+---
+- name: configuring apache2
+  hosts: all
+  tasks:
+    - name: install apache2
+      apt: 
+        name: apache2
+        state: present
+        update_cache: yes
+
+    - name: edit the in dex.html file
+      copy:
+       content: "kranthi"
+       dest: /var/www/html/index.html
+
+    - name: restart apache2
+      service:
+       name: apache2
+       state: restarted 
+    
+    - name: check apache2 on managehost1
+      uri: 
+       url: http://172.31.93.237
+       status_code: 200
+
+    - name: check apache2 on managehost2
+      uri:
+       url: http://172.31.84.23
+       status_code: 200
+
+...         

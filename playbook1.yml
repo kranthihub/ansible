@@ -1,0 +1,24 @@
+---
+- name: create user on all servers
+  hosts: all
+  tasks: 
+    - name: user creation
+      user:
+        name: rajesh
+        password: abcd
+        uid: 1212
+        comment: 'a normal user'
+        shell: /bin/bash
+        home: /tmp/rajesh
+      user:
+        name: bhai
+        password: abcd
+        uid: 1313
+        comment: 'a regukar user'
+        shell: /bin/bash
+        home: /tmp/bhai
+
+...          
+
+
+
