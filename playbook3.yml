@@ -28,11 +28,11 @@
    - name: Pause for 1 min
      pause:
       minutes: 1
-   - name: Check tomcat response on server1
+   - name: Check tomcat response on managehost1
      uri:
       url: http://172.31.93.237:9090
       status_code: 200
-   - name: Check tomcat response on server2
+   - name: Check tomcat response on managehost2
      uri:
       url: http://172.31.84.23:9090
       status_code: 200
